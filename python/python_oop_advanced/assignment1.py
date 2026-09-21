@@ -184,8 +184,6 @@ sp1.play()
 
 
 #Demonstrate the use of super() in inheritance
-# Demonstrate the use of super() in inheritance
-
 class Parent:
     def __init__(self, name):
         self.name = name
