@@ -201,8 +201,6 @@ class Child(Parent):
         super().show()
         print("Age:", self.age)
 
-
-# Create object
 child1 = Child("Hem", 20)
 
 child1.display()
