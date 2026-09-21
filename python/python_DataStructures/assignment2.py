@@ -71,9 +71,3 @@ lst = [
 
 d = dict(lst)
 print(d)
-
-def interest(p,r,t):
-    si=(p*r*t)/100
-    return si
-print(interest(10000,5,4))
-
