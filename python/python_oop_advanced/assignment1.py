@@ -199,7 +199,7 @@ class Child(Parent):
 
     def display(self):
         super().show()
-        print("Age:", self.age)
+        print("Age:", self.age)        
 
 child1 = Child("Hem", 20)
 
