@@ -8,8 +8,6 @@ base_path = os.path.dirname(
 )
 db_path = os.path.join(base_path, "Students.db")
 
-print("Database:", db_path)
-
 connection = sqlite3.connect(db_path)
 cursor = connection.cursor()
 # 1. Count total number of students
