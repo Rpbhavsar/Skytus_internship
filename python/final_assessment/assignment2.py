@@ -1,50 +1,35 @@
-#Quiz game
-score = 0
+import requests
 
-print("----Quiz Game----")
+def get_weather(city):
+    api_key = "39383c1306fd7ae85cc233b5a98fea2d"
 
-print("\n 1. Which symbol is used for comments in python")
-print("A. //")
-print("B. <!-- -->")
-print("C. #")
-print("D. **")
+    url = "https://api.openweathermap.org/data/2.5/weather"
 
-answer = input("Enter your answer:")
+    params = {
+        "q": city,
+        "appid": api_key,
+        "units": "metric"
+    }
 
-if answer.lower() == "b":
-    print("Correct")
-    score= score+1
-else:
-    print("Wrong")
+    try:
+        response = requests.get(url, params=params)
 
-print("\n 2. Which loop is used to repeat while a condition is true?")
-print("A. for")
-print("B. while")
-print("C. if")
-print("D. switch")
+        data = response.json()
 
-answer = input("Enter your answer:")
+        temperature = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        description = data["weather"][0]["description"]
 
-if answer.lower()== "b":
-    print("Correct")
-    score=score+1
-else:
-    print("Wrong")
+        print("\n==== Weather Report ====")
+        print("City:", data["name"])
+        print("Temperature:", temperature, "°C")
+        print("Humidity:", humidity, "%")
+        print("Weather:", description)
 
-print("\ 3n. Which data type stores multiple values in a sequence?")
-print("A. list")
-print("B. int")
-print("C. float")
-print("D. bool")
+    except requests.exceptions.RequestException as error:
+        print("Connection error:", error)
 
-answer= input("Enter your answer:")
+print("==== Weather App ====")
 
-if answer.lower()== "a":
-    print("Correct")
-    score=score+1
-else:
-    print("Wrong")
-
-
-print("----Result----")
-print("Your score is :",score,"/3")
+city = input("Enter a city:")
+get_weather(city)
