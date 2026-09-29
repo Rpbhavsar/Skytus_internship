@@ -1,12 +1,7 @@
 import sqlite3
 import os
 
-base_path = os.path.dirname(
-    os.path.dirname(
-        os.path.dirname(os.path.abspath(__file__))
-    )
-)
-db_path = os.path.join(base_path, "Students.db")
+db_path = os.path.join(r"C:\Users\Ronit Bhavsar\OneDrive\Desktop\skytusintern","Students.db")
 
 connection = sqlite3.connect(db_path)
 cursor = connection.cursor()
