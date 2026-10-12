@@ -35,7 +35,6 @@ orders=[
     (4,3,"2025-01-04",2500)
 ]
 cursor.executemany("INSERT OR IGNORE INTO orders (order_id, user_id, order_date, total_amount) VALUES (?, ?, ?, ?)", orders)
-
 # 3. Create index on email
 cursor.execute("""
 CREATE INDEX IF NOT EXISTS idx_users_email
